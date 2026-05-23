@@ -1,0 +1,36 @@
+.product-detail-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding: 40px; }
+.product-gallery { display: flex; flex-direction: column; gap: 16px; }
+.main-image { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--bg3); padding-top: 100%; }
+.main-image img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.thumbnail-list { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
+.thumbnail-list img { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); cursor: pointer; border: 2px solid transparent; opacity: 0.6; transition: var(--transition); }
+.thumbnail-list img.active, .thumbnail-list img:hover { opacity: 1; border-color: var(--primary); }
+
+.breadcrumbs { color: var(--primary); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.detail-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+.detail-meta { display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 15px; margin-bottom: 24px; }
+.dot { font-size: 20px; }
+
+.detail-price-box { padding: 24px; background: rgba(108,99,255,0.05); border: 1px solid rgba(108,99,255,0.2); border-radius: var(--radius); margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; }
+.prices .current { font-size: 32px; font-weight: 900; color: var(--accent); margin-right: 12px; }
+.prices .old { font-size: 18px; text-decoration: line-through; color: var(--text-muted); }
+.stock-status { padding: 6px 16px; border-radius: 99px; font-weight: 700; font-size: 14px; }
+.in-stock { background: rgba(67,233,123,0.15); color: var(--success); }
+.out-stock { background: rgba(255,77,109,0.15); color: var(--danger); }
+
+.detail-desc { font-size: 16px; color: var(--text-light); line-height: 1.8; margin-bottom: 40px; }
+
+.action-box { display: flex; gap: 20px; }
+.qty-selector { display: flex; align-items: center; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; height: 54px; }
+.qty-selector button { width: 44px; height: 100%; background: none; color: var(--text); font-size: 20px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.qty-selector button:hover { background: rgba(255,255,255,0.05); }
+.qty-selector input { width: 50px; text-align: center; background: none; border: none; color: var(--text); font-weight: 700; font-size: 16px; }
+.flex-1 { flex: 1; }
+
+@media (max-width: 900px) {
+  .product-detail-layout { grid-template-columns: 1fr; padding: 24px; }
+}
+@media (max-width: 600px) {
+  .action-box { flex-direction: column; }
+  .detail-price-box { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
