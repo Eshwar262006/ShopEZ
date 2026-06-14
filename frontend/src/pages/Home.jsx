@@ -71,7 +71,7 @@ export default function Home() {
                 <Link to={`/product/${product._id}`} key={product._id} className="card product-card">
                   {product.discount > 0 && <div className="product-badge">-{product.discount}%</div>}
                   <div className="product-img-wrapper">
-                    <img src={product.images[0] || 'https://via.placeholder.com/400x400?text=No+Image'} alt={product.name} />
+                    <img src={(product.images[0] && product.images[0].includes('unsplash')) ? `https://loremflickr.com/400/400/${product.category.split(' ')[0].toLowerCase()}?lock=${product._id.substring(18)}` : (product.images[0] || 'https://via.placeholder.com/400x400?text=No+Image')} alt={product.name} />
                   </div>
                   <div className="product-info">
                     <p className="product-category">{product.category}</p>

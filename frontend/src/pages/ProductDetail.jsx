@@ -66,15 +66,13 @@ export default function ProductDetail() {
         <div className="product-gallery">
           <div className="main-image">
             {product.discount > 0 && <div className="product-badge">-{product.discount}%</div>}
-            <img src={product.images[activeImg] || 'https://via.placeholder.com/600'} alt={product.name} />
+            <img src={(product.images[activeImg] && product.images[activeImg].includes('unsplash')) ? `https://loremflickr.com/600/600/${product.category.split(' ')[0].toLowerCase()}?lock=${product._id.substring(18)}` : (product.images[activeImg] || 'https://via.placeholder.com/600')} alt={product.name} />
           </div>
           <div className="thumbnail-list">
             {product.images.map((img, i) => (
-              <img 
-                key={i} src={img} alt="thumb" 
-                className={i === activeImg ? 'active' : ''}
-                onClick={() => setActiveImg(i)}
-              />
+              <div key={i} className={`thumbnail ${activeImg === i ? 'active' : ''}`} onClick={() => setActiveImg(i)}>
+                <img src={(img && img.includes('unsplash')) ? `https://loremflickr.com/100/100/${product.category.split(' ')[0].toLowerCase()}?lock=${product._id.substring(18)}` : (img || 'https://via.placeholder.com/100')} alt={`Thumbnail ${i}`} />
+              </div>
             ))}
           </div>
         </div>

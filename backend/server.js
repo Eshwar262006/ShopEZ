@@ -4,9 +4,26 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 
 dotenv.config();
-connectDB();
 
 const app = express();
+
+// Ensure DB is connected before any routes are processed (Serverless pattern)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(500).json({ message: 'Database Connection Error' });
+  }
+});
+
+
+
+
+
+
+
+
 
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' ? true : 'http://localhost:5173',
