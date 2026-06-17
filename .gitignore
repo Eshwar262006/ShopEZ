@@ -7,3 +7,10 @@ frontend/frontend_error.log
 frontend/frontend_server.log
 
 .vercel
+
+# Ignore templates and documentation
+ShopEZ Project Templets/
+Documention.html
+Final_Documentation_With_Codes.htm
+Final_Documentation_With_Codes_files/
+ShopEZ Project Templets.zip
